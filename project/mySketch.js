@@ -6,5 +6,3 @@ function setup() {
 function draw() {
   // Nothing here yet – we'll add features step by step
 }
-
-class room
