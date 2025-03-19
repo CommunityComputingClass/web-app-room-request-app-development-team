@@ -12,7 +12,7 @@ function setup(){
     background("white");
 }
 
-function draw(){
+function draw() {
     background(50);
     noStroke();
     fill(255);
