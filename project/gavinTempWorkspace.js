@@ -12,9 +12,19 @@ function draw() {
   }
   
 class Room {
-    constructor(id) {
-        this.roomID = id
-        this.building = this.roomID[0] + " Building"
-        this.floor = this.roomID[1] + " Floor"
+  constructor(id) {
+    this.roomID = id
+    this.building = this.roomID[0] + " Building"
+    this.floor = this.roomID[1] + " Floor"
     }
+}
+
+class Request {
+    constructor(room, start, end) {
+      this.rID = room
+      this.tStart = start
+      this.tEnd = end
+
+    }
+
 }
