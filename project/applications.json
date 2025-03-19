@@ -1,0 +1,12 @@
+{
+    "applications": [
+        {
+            "serial": "n",
+            "room": "room[n]",
+            "name": "names[n]",
+            "email": "address[n]",
+            "purpose": "purpose[n]",
+            "time": "timeslot[n]"
+        }
+    ]
+}
