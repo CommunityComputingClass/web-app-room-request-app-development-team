@@ -3,11 +3,11 @@ let floorPlan;
 let scaleFactor = 0.6; // Shrink image and rooms
 
 function preload() {
-    floorPlan = loadImage("Layout.png"); // Ensure this file is in the correct directory
+    floorPlan = loadImage("Layout.png"); 
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight); // Keep full canvas size
+    createCanvas(windowWidth, windowHeight); 
 }
 
 function setAvailableRooms(newRooms) {
@@ -17,9 +17,9 @@ function setAvailableRooms(newRooms) {
 
 function drawRoom(x, y, w, h, roomName) {
     fill(availableRooms.includes(roomName) ? [80, 239, 96, 150] : [240, 107, 107, 150]);
-    rect(x, y, w, h, 5); // Draw at new adjusted positions
+    rect(x, y, w, h, 5); 
     fill(0);
-    textSize(20); // Keep text readable
+    textSize(20); /
     textAlign(CENTER, CENTER);
     text(roomName, x + w / 2, y + h / 2);
 }
@@ -28,10 +28,10 @@ function draw() {
     background(255);
 
     push();
-    translate(400, 50); // Move everything MORE right and UP
-    scale(scaleFactor); // Shrink image and rooms
+    translate(400, 50); /
+    scale(scaleFactor); 
 
-    image(floorPlan, 0, 0, floorPlan.width, floorPlan.height); // Keep image scaled
+    image(floorPlan, 0, 0, floorPlan.width, floorPlan.height);
 
     // Shift boxes UP (-y) and RIGHT (+x)
     let xShift = 100;  // Move right
