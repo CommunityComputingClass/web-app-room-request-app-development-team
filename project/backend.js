@@ -1,9 +1,9 @@
 let headerText = "Room | Name | Email | Purpose | Timeslot | Application Number"
-let serial = []
-let application;
+let serial = [0,1,2,3]
+let applications;
 
 function preload(){
-    application = loadJSON("applications.json")
+    applications = loadJSON("applications.json")
 
 }
 
@@ -17,18 +17,20 @@ function draw() {
     noStroke();
     fill(255);
     text(headerText,50,200)
+    printApplications
 }
 
 function printApplications(){
     let specificY = 250
     for (let n = 0; n<serial.length; n++){
         textSize(20)
-        text(applications[0].room[n],60,specificY)
-        text(applications[0].name[n],180,specificY)
-        text(applications[0].email[n],300,specificY)
-        text(applications[0].purpose[n],420,specificY)
-        text(applications[0].time[n],540,specificY)
-        text(applications[0].serial[n],600,specificY)
+        textColor("white")
+        text(applications[n].room[0],60,specificY)
+        text(applications[n].name[0],180,specificY)
+        text(applications[n].email[0],300,specificY)
+        text(applications[n].purpose[0],420,specificY)
+        text(applications[n].time[0],540,specificY)
+        text(applications[n].serial[0],600,specificY)
         specificY +=50
         console.log(specificY)
     }

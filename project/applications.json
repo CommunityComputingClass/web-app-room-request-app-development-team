@@ -1,12 +1,38 @@
 {
     "applications": [
         {
-            "serial": "number[n]",
-            "room": "room[n]",
-            "name": "names[n]",
-            "email": "address[n]",
-            "purpose": "purpose[n]",
-            "time": "timeslot[n]"
+            "serial": "number[1]",
+            "room": "room[201]",
+            "name": "names[Abigail]",
+            "email": "address[28abigail.placeholder@lwhs.org]",
+            "purpose": "purpose[club meeting]",
+            "time": "timeslot[lunch]"
+        },
+        {
+            "serial": "2",
+            "room": "213",
+            "name": "Magdalena",
+            "email": "26magdalena.smith@lwhs.org",
+            "purpose": "study sesh",
+            "time": "tutorial"
+        },
+        {
+            "serial": "3",
+            "room": "303",
+            "name": "Constance",
+            "email": "27constance.paiologos@lwhs.org",
+            "purpose": "club administration",
+            "time": "after school"
+        },
+        {
+            "serial": "4",
+            "room":"311",
+            "name": "Selene",
+            "email": "25selene.senioritis@lwhs.org",
+            "purpose": "senior prank planning",
+            "time": "before school"
         }
     ]
+
+    
 }
