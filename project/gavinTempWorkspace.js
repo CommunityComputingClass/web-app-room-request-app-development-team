@@ -24,7 +24,6 @@ class Request {
       this.rID = room
       this.tStart = start
       this.tEnd = end
-
     }
 
 }
