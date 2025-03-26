@@ -1,12 +1,12 @@
 {
     "applications": [
         {
-            "serial": "number[1]",
-            "room": "room[201]",
-            "name": "names[Abigail]",
-            "email": "address[28abigail.placeholder@lwhs.org]",
-            "purpose": "purpose[club meeting]",
-            "time": "timeslot[lunch]"
+            "serial": "1",
+            "room": "201",
+            "name": "Abigail",
+            "email": "28abigail.placeholder@lwhs.org",
+            "purpose": "club meeting",
+            "time": "lunch"
         },
         {
             "serial": "2",

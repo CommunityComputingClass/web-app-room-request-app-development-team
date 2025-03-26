@@ -17,7 +17,7 @@ function draw() {
     noStroke();
     fill(255);
     text(headerText,50,200)
-    printApplications
+    printApplications()
 }
 
 function printApplications(){
@@ -25,12 +25,12 @@ function printApplications(){
     for (let n = 0; n<serial.length; n++){
         textSize(20)
         textColor("white")
-        text(applications[n].room[0],60,specificY)
-        text(applications[n].name[0],180,specificY)
-        text(applications[n].email[0],300,specificY)
-        text(applications[n].purpose[0],420,specificY)
-        text(applications[n].time[0],540,specificY)
-        text(applications[n].serial[0],600,specificY)
+        text(applications[n].room,60,specificY)
+        text(applications[n].name,180,specificY)
+        text(applications[n].email,300,specificY)
+        text(applications[n].purpose,420,specificY)
+        text(applications[n].time,540,specificY)
+        text(applications[n].serial,600,specificY)
         specificY +=50
         console.log(specificY)
     }
