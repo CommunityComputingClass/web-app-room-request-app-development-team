@@ -6,7 +6,7 @@
             "name": "Abigail",
             "email": "28abigail.placeholder@lwhs.org",
             "purpose": "club meeting",
-            "time": "lunch"
+            "time": "12:10 PM"
         },
         {
             "serial": "2",
@@ -14,7 +14,7 @@
             "name": "Magdalena",
             "email": "26magdalena.smith@lwhs.org",
             "purpose": "study sesh",
-            "time": "tutorial"
+            "time": "11:25 AM"
         },
         {
             "serial": "3",
@@ -22,7 +22,7 @@
             "name": "Constance",
             "email": "27constance.paiologos@lwhs.org",
             "purpose": "club administration",
-            "time": "after school"
+            "time": "3:40 PM"
         },
         {
             "serial": "4",
@@ -30,7 +30,39 @@
             "name": "Selene",
             "email": "25selene.senioritis@lwhs.org",
             "purpose": "senior prank planning",
-            "time": "before school"
+            "time": "8:00 AM"
+        },
+        {
+            "serial": "5",
+            "room": "The Center",
+            "name": "Angela",
+            "email": "acenterstaff@lwhs.org",
+            "purpose": "ESWG",
+            "time": "10:05 AM"
+        },
+        {
+            "serial": "6",
+            "room": "105",
+            "name": "Kayla",
+            "email": "26kayla.busybody@lwhs.org",
+            "purpose": "study session",
+            "time": "12:10 PM"
+        },
+        {
+            "serial": "7",
+            "room": "209",
+            "name": "Constance",
+            "email": "27constance.paiologos@lwhs.org",
+            "purpose": "club meeting",
+            "time": "11:25 AM"
+        },
+        {
+            "serial": "8",
+            "room": "Eherer Theater",
+            "name": "Magdalena",
+            "email": "26magdalena.smith@lwhs.org",
+            "purpose": "rehearsal",
+            "time": "3:35 PM"
         }
     ]
 
