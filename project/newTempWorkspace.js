@@ -1,4 +1,4 @@
-let defaultX = 10
+let defaultX = 400
 let defaultY = 10
 let floor2
 let floor3
@@ -7,16 +7,15 @@ let floor3Rooms = []
 let graphics = true
 
 function preload() {
-    floor2 = loadImage("2ndFloor.png")
-    floor3 = loadImage("3rdFloor.png")
+    floor2 = loadImage("2nd floor.png")
+    floor3 = loadImage("3rd floor.png")
 }
 
 function setup() {
     createCanvas(windowWidth - 18, windowHeight - 18);
     background(200);
-    imageMode(CENTER);
-    let defaultX = 558
-    let defaultY = 270
+    imageMode(CORNER);
+
 
     // The following creates the 3rd floor rooms
     floor3Rooms.push(new room("h301", 165,0, 265, 115))
@@ -30,28 +29,28 @@ function setup() {
 
 function draw() {
     background(200);
-    // image(floor3, width / 2 - 580, height / 2 -55, floor3.width, floor3.height);
-    //strokeWeight(1)
-    //text(mouseX, 10, 10)
-    //text(mouseY, 10, 20)
+    defaultX = 400
+    defaultY = 10
+    image(floor3, defaultX - 75, defaultY - 69, floor3.width / 1.245, floor3.height / 1.245) //nice
+    defaultX = 400
+    defaultY = 410
+    image(floor2, defaultX - 160, defaultY - 90, floor3.width / 1.14, floor3.height / 1.14) //nice
+    strokeWeight(1)
+    text(mouseX, 10, 10)
+    text(mouseY, 10, 20)
+    defaultX = 400
+    defaultY = 10
 
     if (graphics) {
         render3rd()
         
-        for (let i in floor3Rooms) {
-            floor3Rooms[i].render(0)
-        }
 
-        for (let i in floor3Rooms) {
-            floor3Rooms[i].mouseOver()
-        }
-    } else {
-        image(floor3, width / 2 - 580, height / 2 -55, floor3.width, floor3.height);
-        strokeWeight(1)
-        text(mouseX, 10, 10)
-        text(mouseY, 10, 20)
+        defaultX = 400
+        defaultY = 410
+        
+        render2nd()
     }
-
+    
     // Nothing here yet – we'll add features step by step
 }
 
@@ -93,6 +92,8 @@ function render3rd() {
     fill(255)
     rectMode(CORNERS)
     rect(defaultX, defaultY, defaultX + 865, defaultY + 260) // building outline
+    
+    fill(190)
     rect(defaultX + 100, defaultY, defaultX + 165, defaultY + 115) // office 1
     
     beginShape() // bottom left offices
@@ -121,9 +122,25 @@ function render3rd() {
     vertex(defaultX + 865, defaultY + 165)
     vertex(defaultX + 865, defaultY + 260)
     endShape(CLOSE)
+
+    for (let i in floor3Rooms) {
+        floor3Rooms[i].render(0)
+    }
+    for (let i in floor3Rooms) {
+        floor3Rooms[i].mouseOver(0)
+    }
+}
+
+function render2nd() {
+
+    for (let i in floor2Rooms) {
+        floor3Rooms[i].render(0)
+    }
+    for (let i in floor2Rooms) {
+        floor3Rooms[i].mouseOver(0)
+    }
 }
 
 function mouseClicked() {
     graphics = !graphics
 }
-
