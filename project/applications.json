@@ -58,11 +58,19 @@
         },
         {
             "serial": "8",
-            "room": "Eherer Theater",
+            "room": "Ehrer Theater",
             "name": "Magdalena",
             "email": "26magdalena.smith@lwhs.org",
             "purpose": "rehearsal",
             "time": "3:35 PM"
+        },
+        {
+            "serial": "9",
+            "room": "Bio Lab 1",
+            "name": "Michael",
+            "email": "mnotzavala@lwhs.org",
+            "purpose": "paper tech",
+            "time": "12:10 PM"
         }
     ]
 

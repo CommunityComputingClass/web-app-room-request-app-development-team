@@ -2,12 +2,32 @@ let headerText = "Room        |        Applicant Name | Email of Applicant      
 let data;
 let buttonApproveRequest
 let buttonDenyRequest
-let ReasonForDenial
+let ReasonForDenial;
+let denialReasons = []
+let contents = "";
+
+function storeText(){
+    contents = this.value()
+}
+
 function automatedEmailApproved(){
+    //to be filled in later: will need gmail account integration
+}
+
+function automatedEmailDenied(){
+    //to be filled in later: will need gmail account integration
+    denialReasons.push(contents)
+    console.log(contents)
+    contents = "";
+    ReasonForDenial.value("request denied on grounds of:")
+    
 
 }
-function automatedEmailDenied(){
 
+function automatedEmailBookingOverridden(){
+    //this is in here for when Admin insists on being able to schedule assemblies without two weeks' advance notice
+    //also for when double bookings suddenly appear
+    //It should only fire when the front desk person authorizes it, given that there might be false positives
 }
 
 function preload(){
@@ -19,10 +39,10 @@ function setup(){
     createCanvas(1920,1080);
     background("white");
     console.log(data.applications[0])
-   // ReasonForDenial = createInput("answer goes here")
-   // ReasonForDenial.size(300,40)
-   // ReasonForDenial.position(25,150)
-   // ReasonForDenial.input(storeText)
+    ReasonForDenial = createInput("request denied on these grounds:")
+    ReasonForDenial.size(300,40)
+    ReasonForDenial.position(60,140)
+    ReasonForDenial.input(storeText)
 }
 
 function draw() {
@@ -31,6 +51,8 @@ function draw() {
     fill(255);
     text(headerText,50,200)
     printApplications()
+    
+
 }
 
 function printApplications(){
@@ -42,8 +64,16 @@ function printApplications(){
         text(data.applications[n].name,200,specificY)
         text(data.applications[n].email,360,specificY)
         text(data.applications[n].purpose,720,specificY)
-        text(data.applications[n].time,920,specificY)
+        text(data.applications[n].time,920,specificY)//originally I was thinking clock time. 
+        //However, if we're trying to pull information on assemblies/tutorial from the block schedule than this
+        //could be based on a more uniform system, maybe a "morning m1/m2, tutorial, lunch, afternoon a1/a2, after school"
+        //arrangement instead, which would also make it easier to machine check against double bookings.
         text(data.applications[n].serial,1060,specificY)
+        //text(data.applications[n].date,1060,specificY)
+        //we might want to add a "date" field to applications. this combined with a time block arrangement instead of free time input
+        //could help us automate double booking prevention
+        //although given Admin's habit of springing sudden assemblies on the school
+        //they might want a backdoor which can overrule existing bookings
         let buttonTextApprove = "approve request"
         buttonApproveRequest = createButton(buttonTextApprove)
         buttonApproveRequest.position (1100,specificY)
