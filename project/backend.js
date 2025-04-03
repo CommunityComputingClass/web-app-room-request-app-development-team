@@ -5,6 +5,13 @@ let buttonDenyRequest
 let ReasonForDenial;
 let denialReasons = []
 let contents = "";
+let theDate = "";
+let called_date = "";
+
+function todayis(){
+    const today = new Date().toISOString().split('T')[0];
+    theDate.push(called_date)
+}
 
 function storeText(){
     contents = this.value()
@@ -44,6 +51,7 @@ function setup(){
     ReasonForDenial.size(300,40)
     ReasonForDenial.position(60,140)
     ReasonForDenial.input(storeText)
+    
 }
 
 function draw() {
