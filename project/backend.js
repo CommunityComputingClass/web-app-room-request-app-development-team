@@ -26,6 +26,7 @@ function automatedEmailDenied(){
 
 function automatedEmailBookingOverridden(){
     //this is in here for when Admin insists on being able to schedule assemblies without two weeks' advance notice
+    //and run roughshod over honest, hardworking club leaders and students who just want to meet in peace
     //also for when double bookings suddenly appear
     //It should only fire when the front desk person authorizes it, given that there might be false positives
 }
