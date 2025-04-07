@@ -5,12 +5,10 @@ let buttonDenyRequest
 let ReasonForDenial;
 let denialReasons = []
 let contents = "";
-let theDate = "";
-let called_date = "";
+let now = ""
 
-function todayis(){
-    const today = new Date().toISOString().split('T')[0];
-    theDate.push(called_date)
+function pingTime(){
+    now = Date()
 }
 
 function storeText(){
@@ -28,7 +26,6 @@ function automatedEmailDenied(){
     contents = "";
     ReasonForDenial.value("request denied on grounds of:")
     
-
 }
 
 function automatedEmailBookingOverridden(){
@@ -51,6 +48,7 @@ function setup(){
     ReasonForDenial.size(300,40)
     ReasonForDenial.position(60,140)
     ReasonForDenial.input(storeText)
+    now = Date()
     
 }
 
@@ -58,9 +56,12 @@ function draw() {
     background(50);
     noStroke();
     fill(255);
-    text(headerText,50,200)
+    text(headerText,50,200),
+    pingTime();
+    noStroke();
+    fill("255");
+    text(now,400,150)
     printApplications()
-    
 
 }
 
