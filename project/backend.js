@@ -1,4 +1,4 @@
-let headerText = "Room        |        Applicant Name | Email of Applicant                          |          Reason for Booking | Time | Application Number"
+let headerText = "Room        |        Requester      | Email of Applicant                          |          Reason for Request | Time | Application Number"
 let data;
 let buttonApproveRequest
 let buttonDenyRequest
@@ -48,7 +48,6 @@ function setup(){
     ReasonForDenial.size(300,40)
     ReasonForDenial.position(60,140)
     ReasonForDenial.input(storeText)
-    now = Date()
     
 }
 
