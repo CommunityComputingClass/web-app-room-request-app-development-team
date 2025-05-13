@@ -15,7 +15,7 @@ let graphics = true
 //}
 
 function setup() {
-    createCanvas(windowWidth - 18, windowHeight - 18);
+    createCanvas(windowWidth + 30, windowHeight + 30);
     background(200);
     imageMode(CORNER);
 
@@ -27,21 +27,17 @@ function setup() {
     floor3Rooms.push(new room("h306", 665,0, 765, 115))
     floor3Rooms.push(new room("h307", 765,0, 865, 115))
 
-    // The following creates the 2nd floor rooms
-    floor2Rooms.push(new room("h201", 130, 0, 365, 115))
-    floor2Rooms.push(new room("h202", 365, 0, 465, 115))
-    floor2Rooms.push(new room("h203", 465, 0, 565, 115))
-    floor2Rooms.push(new room("h204", 565, 0, 665, 115))
-    floor2Rooms.push(new room("h205", 665, 0, 765, 115))
-    floor2Rooms.push(new room("h206", 765, 0, 865, 115))
-    floor2Rooms.push(new room("h207", 410, 170, 470, 260))
-   
-    //the following creates the 2nd floor science rooms and far NE rooms on floor 2
-    scienceWingFloor2.push(new room("Bio Lab 1", 230, 260, 360, 390))
-    scienceWingFloor2.push(new room("Bio Lab 2", 230, 410, 360, 540))
-    scienceWingFloor2.push(new room("h209",230,0,330,100))
-    scienceWingFloor2.push(new room("h211",330,0,430,100))
-    scienceWingFloor2.push(new room("h213", 430, 0, 530, 100))
+    // The following creates the 2nd floor rooms including its science wing
+    floor2Rooms.push(new room("h201", 130, 0, 246, 115))
+    floor2Rooms.push(new room("h203", 246, 0, 365, 115))
+    floor2Rooms.push(new room("h205", 365, 0, 465, 115))
+    floor2Rooms.push(new room("h207", 465, 0, 565, 115))
+    floor2Rooms.push(new room("h209", 565, 0, 665, 115))
+    floor2Rooms.push(new room("h211", 665, 0, 765, 115))
+    floor2Rooms.push(new room("h213", 765, 0, 865, 115))
+    floor2Rooms.push(new room("Bio Lab 1", 700, 375, 830, 505))
+    floor2Rooms.push(new room("Bio Lab 2", 700, 525, 830, 655))
+    floor2Rooms.push(new room("Ehrer Theatre",100,360,620,655))
 
     // The following creates the 1st floor rooms
     floor1Rooms.push(new room("h103", 165,0, 265, 115))
@@ -51,7 +47,6 @@ function setup() {
     floor1Rooms.push(new room("h111", 665,0, 765, 115))
     floor1Rooms.push(new room("h113", 765,0, 865, 115))
 
-    // The following creates the 1st floor science rooms
 }
 
 function draw() {
@@ -66,15 +61,15 @@ function draw() {
 
         //render3rd()
         
-        //defaultX = 400
-        //defaultY = 310
+        defaultX = 200
+        defaultY = 200
         
-        //render2nd()
+        render2nd()
 
-        defaultX = 660
-        defaultY = 10
+        //defaultX = 1395
+       // defaultY = 325
     
-        render2ndLabs()
+       // render1st()
     } else {
         refImages()
     }
@@ -169,6 +164,17 @@ function render2nd() {
     vertex(defaultX, defaultY)
     vertex(defaultX + 865, defaultY)
     vertex(defaultX + 865, defaultY + 260)
+    vertex(defaultX + 700, defaultY + 260)
+    vertex(defaultX + 700, defaultY + 375)
+    vertex(defaultX + 830, defaultY + 375)
+    vertex(defaultX + 830, defaultY + 505)
+    vertex(defaultX + 800, defaultY + 505)
+    vertex(defaultX + 800, defaultY + 525)
+    vertex(defaultX + 830, defaultY + 655)
+    vertex(defaultX + 100, defaultY + 655)
+    vertex(defaultX + 100, defaultY + 360)
+    vertex(defaultX + 620, defaultY + 360)
+    vertex(defaultX + 620, defaultY + 260)
     vertex(defaultX, defaultY + 260)
     endShape()
 
@@ -197,60 +203,25 @@ function render2nd() {
     vertex(defaultX + 865, defaultY + 260)
     endShape(CLOSE)
 
+    beginShape() // history office
+    vertex(defaultX + 700, defaultY + 375)
+    vertex(defaultX + 700, defaultY + 260)
+    vertex(defaultX + 800, defaultY + 260)
+    vertex(defaultX + 800, defaultY + 375)
+    endShape(CLOSE)
+
+    beginShape() // science prep space
+    vertex(defaultX + 700, defaultY + 505)
+    vertex(defaultX + 700, defaultY + 525)
+    vertex(defaultX + 800, defaultY + 525)
+    vertex(defaultX + 800, defaultY + 505)
+    endShape(CLOSE)
+
     for (let i in floor2Rooms) {
         floor2Rooms[i].render(0)
     }
     for (let i in floor2Rooms) {
         floor2Rooms[i].mouseOver(0)
-    }
-}
-
-function render2ndLabs() {
-    strokeWeight(5)
-    stroke(155)
-    fill(255)
-    rectMode(CORNERS)
-    
-    beginShape() // building outline
-    vertex(defaultX, defaultY)
-    vertex(defaultX + 530, defaultY)
-    vertex(defaultX+530,defaultY+160)
-    vertex(defaultX+300,defaultY+160)
-    vertex(defaultX+300,defaultY+220)
-    vertex(defaultX+300,defaultY+270)
-    vertex(defaultX + 400, defaultY + 580)
-    vertex(defaultX, defaultY + 580)
-    endShape()
-
-    fill(190)
-    
-    beginShape() // history office
-    vertex(defaultX + 130, defaultY + 260)
-    vertex(defaultX + 130, defaultY + 160)
-    vertex(defaultX + 300, defaultY + 160)
-    vertex(defaultX + 300, defaultY + 260)
-    endShape(CLOSE)
-    
-    //beginShape() // world language office
-    //vertex(defaultX + 370, defaultY + 260)
-    //vertex(defaultX + 370, defaultY + 170)
-    //vertex(defaultX + 470, defaultY + 170)
-    //vertex(defaultX + 610, defaultY + 160)
-    //vertex(defaultX + 620, defaultY + 260)
-    //endShape(CLOSE)
-
-    beginShape() // bathroom
-    vertex(defaultX + 130, defaultY + 160)
-    vertex(defaultX + 130, defaultY + 80)
-    vertex(defaultX + 200, defaultY + 80)
-    vertex(defaultX + 200, defaultY + 160)
-    endShape(CLOSE)
-
-    for (let i in scienceWingFloor2) {
-        scienceWingFloor2[i].render(0)
-    }
-    for (let i in scienceWingFloor2) {
-        scienceWingFloor2[i].mouseOver(0)
     }
 }
 
