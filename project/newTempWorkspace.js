@@ -19,48 +19,49 @@ function setup() {
     floorCycleButton.mousePressed(cycleFloor);
 
     // The following creates the 3rd floor rooms
-    floor3Rooms.push(new room("h301", 165,0, 265, 115))
-    floor3Rooms.push(new room("h303", 265,0, 365, 115))
-    floor3Rooms.push(new room("h304", 465,0, 565, 115))
-    floor3Rooms.push(new room("h305", 565,0, 665, 115))
-    floor3Rooms.push(new room("h306", 665,0, 765, 115))
-    floor3Rooms.push(new room("h307", 765,0, 865, 115))
-    //library building
+    floor3Rooms.push(new room("H303", 165,0, 265, 115))
+    floor3Rooms.push(new room("H305", 265,0, 365, 115))
+    floor3Rooms.push(new room("H309", 465,0, 565, 115))
+    floor3Rooms.push(new room("H311", 565,0, 665, 115))
+    floor3Rooms.push(new room("H313", 665,0, 765, 115))
+    floor3Rooms.push(new room("H315", 765,0, 865, 115))
+    //library building abstraction
     floor3Rooms.push(new room("L251", 165, 280, 265, 395))
     floor3Rooms.push(new room("L253", 265, 280, 365, 395))
     floor3Rooms.push(new room("Photo Studio", 365, 280, 465, 395))
-    //shops pit
-    floor3Rooms.push(new room("Wearables Shop", 165, 450, 265, 550))
-    floor3Rooms.push(new room("Set Design Shop", 265, 450, 365, 550))
-    floor3Rooms.push(new room("Wood Shop", 365, 450, 465, 550))
-    floor3Rooms.push(new room("Computer Lab", 65, 550, 165, 650))
-    floor3Rooms.push(new room("Physics Room", 165, 550, 265, 650))
-    floor3Rooms.push(new room("Electronics Shop", 265, 550, 365, 650))
-    floor3Rooms.push(new room("Metal Shop", 365, 550, 465, 650))
 
     // The following creates the 2nd floor rooms including its science wing
     floor2Rooms.push(new room("The Center", 0,160, 130, 260))
-    floor2Rooms.push(new room("h201", 130, 0, 246, 115))
-    floor2Rooms.push(new room("h203", 246, 0, 365, 115))
-    floor2Rooms.push(new room("h205", 365, 0, 465, 115))
-    floor2Rooms.push(new room("h207", 465, 0, 565, 115))
-    floor2Rooms.push(new room("h209", 565, 0, 665, 115))
-    floor2Rooms.push(new room("h211", 665, 0, 765, 115))
-    floor2Rooms.push(new room("h213", 765, 0, 865, 115))
+    floor2Rooms.push(new room("Miranda Lux CR", -125, 0, 0, 115))
+    floor2Rooms.push(new room("H201", 130, 0, 246, 115))
+    floor2Rooms.push(new room("H203", 246, 0, 365, 115))
+    floor2Rooms.push(new room("H205", 365, 0, 465, 115))
+    floor2Rooms.push(new room("H207", 465, 0, 565, 115))
+    floor2Rooms.push(new room("H209", 565, 0, 665, 115))
+    floor2Rooms.push(new room("H211", 665, 0, 765, 115))
+    floor2Rooms.push(new room("H213", 765, 0, 865, 115))
     floor2Rooms.push(new room("Bio Lab 1", 700, 375, 830, 505))
     floor2Rooms.push(new room("Bio Lab 2", 700, 525, 830, 655))
     floor2Rooms.push(new room("Ehrer Theatre",100,360,620,655))
 
     // The following creates the 1st floor rooms
-    floor1Rooms.push(new room("h103", 165,0, 265, 115))
-    floor1Rooms.push(new room("h105", 265,0, 365, 115))
-    floor1Rooms.push(new room("h107", 365,0, 465, 115))
-    floor1Rooms.push(new room("h109", 465,0, 565, 115))
-    floor1Rooms.push(new room("h111", 665,0, 765, 115))
-    floor1Rooms.push(new room("h113", 765,0, 865, 115))
+    floor1Rooms.push(new room("H103", 165,0, 265, 115))
+    floor1Rooms.push(new room("H105", 265,0, 365, 115))
+    floor1Rooms.push(new room("H107", 365,0, 465, 115))
+    floor1Rooms.push(new room("H109", 465,0, 565, 115))
+    floor1Rooms.push(new room("H111", 665,0, 765, 115))
+    floor1Rooms.push(new room("H113", 765,0, 865, 115))
     floor1Rooms.push(new room("Chem Lab 1", 700, 375, 830, 505))
     floor1Rooms.push(new room("Chem Lab 2", 700, 525, 830, 655))
     floor1Rooms.push(new room("Dance Studio",320,160,545,400))
+    //shops pit abstraction
+    floor1Rooms.push(new room("Wearables Shop", 165, 450, 265, 550))
+    floor1Rooms.push(new room("Set Design Shop", 265, 450, 365, 550))
+    floor1Rooms.push(new room("Wood Shop", 365, 450, 465, 550))
+    floor1Rooms.push(new room("Computer Lab", 65, 550, 165, 650))
+    floor1Rooms.push(new room("Physics Room", 165, 550, 265, 650))
+    floor1Rooms.push(new room("Electronics Shop", 265, 550, 365, 650))
+    floor1Rooms.push(new room("Metal Shop", 365, 550, 465, 650))
 
 }
 
@@ -169,12 +170,11 @@ function render3rd() {
     endShape(CLOSE)
 
     strokeWeight(1)
-    stroke("black")
-    fill(255)
+    stroke(255)
+    fill("black")
 
     text("H Building 3rd Floor", defaultX + 150, defaultY - 20)
-    text("Library (all floors)", defaultX + 0, defaultY + 300)
-    text("Shops Pit", defaultX + 100, defaultY + 500)
+    text("Library (abstraction)", defaultX + 0, defaultY + 300)
 
     for (let i in floor3Rooms) {
         floor3Rooms[i].render(0)
@@ -246,6 +246,12 @@ function render2nd() {
     vertex(defaultX + 800, defaultY + 525)
     vertex(defaultX + 800, defaultY + 505)
     endShape(CLOSE)
+
+    strokeWeight(1)
+    stroke(255)
+    fill("black")
+
+    text("H Building 2nd Floor", defaultX + 150, defaultY - 20)
 
     for (let i in floor2Rooms) {
         floor2Rooms[i].render(0)
@@ -321,6 +327,13 @@ function render1st() {
     vertex(defaultX + 800, defaultY + 525)
     vertex(defaultX + 800, defaultY + 505)
     endShape(CLOSE)
+
+    strokeWeight(1)
+    stroke(255)
+    fill("black")
+
+    text("H Building 1st Floor", defaultX + 150, defaultY - 20)
+    text("Shops Pit", defaultX + 100, defaultY + 500)
 
     for (let i in floor1Rooms) {
         floor1Rooms[i].render(0)

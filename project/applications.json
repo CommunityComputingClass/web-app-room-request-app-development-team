@@ -2,35 +2,39 @@
     "applications": [
         {
             "serial": "1",
-            "room": "201",
+            "room": "H201",
             "name": "Abigail",
             "email": "28abigail.placeholder@lwhs.org",
             "purpose": "club meeting",
-            "time": "12:10 PM"
+            "time": "12:10 PM",
+            "approvalstatus":"Approved"
         },
         {
             "serial": "2",
-            "room": "213",
+            "room": "H213",
             "name": "Magdalena",
             "email": "26magdalena.smith@lwhs.org",
             "purpose": "study sesh",
-            "time": "11:25 AM"
+            "time": "11:25 AM",
+            "approvalstatus":"Pending Review"
         },
         {
             "serial": "3",
-            "room": "303",
+            "room": "H303",
             "name": "Constance",
             "email": "27constance.paiologos@lwhs.org",
             "purpose": "club administration",
-            "time": "3:40 PM"
+            "time": "3:40 PM",
+            "approvalstatus":"Pending Review"
         },
         {
             "serial": "4",
-            "room":"311",
+            "room":"H311",
             "name": "Selene",
             "email": "25selene.senioritis@lwhs.org",
             "purpose": "senior prank planning",
-            "time": "8:00 AM"
+            "time": "8:00 AM",
+            "approvalstatus":"Denied"
         },
         {
             "serial": "5",
@@ -38,23 +42,26 @@
             "name": "Angela",
             "email": "acenterstaff@lwhs.org",
             "purpose": "ESWG",
-            "time": "10:05 AM"
+            "time": "10:05 AM",
+            "approvalstatus":"Approved"
         },
         {
             "serial": "6",
-            "room": "105",
+            "room": "H105",
             "name": "Kayla",
             "email": "26kayla.busybody@lwhs.org",
             "purpose": "study session",
-            "time": "12:10 PM"
+            "time": "12:10 PM",
+            "approvalstatus": "Pending Review"
         },
         {
             "serial": "7",
-            "room": "209",
+            "room": "H209",
             "name": "Constance",
             "email": "27constance.paiologos@lwhs.org",
             "purpose": "club meeting",
-            "time": "11:25 AM"
+            "time": "11:25 AM",
+            "approvalstatus":"Pending Review"
         },
         {
             "serial": "8",
@@ -62,7 +69,8 @@
             "name": "Magdalena",
             "email": "26magdalena.smith@lwhs.org",
             "purpose": "rehearsal",
-            "time": "3:35 PM"
+            "time": "3:35 PM",
+            "approvalstatus":"Pending Review"
         },
         {
             "serial": "9",
@@ -70,7 +78,8 @@
             "name": "Michael",
             "email": "mnotzavala@lwhs.org",
             "purpose": "paper tech",
-            "time": "12:10 PM"
+            "time": "12:10 PM",
+            "approvalstatus":"Denied"
         }
     ]
 
