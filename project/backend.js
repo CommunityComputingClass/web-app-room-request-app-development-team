@@ -25,10 +25,10 @@ function automatedEmailApproved(){
 }
 
 function requestDenied(){
-    //to be filled in later: will need gmail account integration
     denialReasons.push(contents)
     console.log(contents)
     contents = "";
+    this.if = "Denied";
     ReasonForDenial.value("request denied on grounds of:")
     
 }
@@ -53,10 +53,53 @@ class application {
         this.if = approvalstatus
     }
 
-    render(){
-
+    render(specificY){
+            textSize(20)
+           if(this.if==="Denied"){
+            fill("red")
+           }
+          else if(this.if==="Pending Review"){
+            fill("yellow")
+           }
+           else if(this.if==="Approved"){
+            fill("green")
+           }
+           else(
+            fill("white")
+           )
+          text(this.where,60,specificY)
+          text(this.who,200,specificY)
+          text(this.replyto,360,specificY)
+          text(this.why,720,specificY)
+          text(this.when,920,specificY)
+          text(this.what,1060,specificY)
+        
+            if(this.if==="Pending Review"){
+            let buttonTextApprove = "approve request"
+            buttonApproveRequest = createButton(buttonTextApprove)
+            buttonApproveRequest.position (1100,specificY)
+            buttonApproveRequest.mousePressed(
+                //requestApproved(),
+                //this.if = "Approved"
+            );
+            let buttonTextDeny= "deny request"
+            buttonDenyRequest = createButton(buttonTextDeny)
+            buttonDenyRequest.position (1250,specificY)
+            buttonDenyRequest.mousePressed(
+                //requestDenied(),
+                this.if = "Denied",
+                console.log(this.if)
+            )
+            text(this.if,1350,specificY)
+            
+         }
+         else{
+            text(this.if,1100,specificY)
+          }
+        
+        }
     }
-}
+
 
 function setup(){
     createCanvas(1920,1080);
@@ -69,7 +112,7 @@ function setup(){
     for (let n = 0; n<data.applications.length; n++){
         requests.push(new application(data.applications[n].serial,data.applications[n].room,data.applications[n].name,
         data.applications[n].email,data.applications[n].purpose,data.applications[n].time,data.applications[n].approvalstatus))
-        console.log(requests[n])
+        //console.log(requests[n])
     }
     
     
@@ -84,8 +127,17 @@ function draw() {
     noStroke();
     fill("255");
     text(now,400,150)
-    printApplications()
+    //printApplications()
+    renderApplications()
 
+}
+
+function renderApplications(){
+    specificY = 250
+    for( let [i] in requests) {
+        requests[i].render(specificY)
+        specificY +=75
+    }
 }
 
 function printApplications(){
@@ -111,6 +163,7 @@ function printApplications(){
         text(data.applications[n].time,920,specificY)
         text(data.applications[n].serial,1060,specificY)
         
+
         if(data.applications[n].approvalstatus==="Pending Review"){
             let buttonTextApprove = "approve request"
             buttonApproveRequest = createButton(buttonTextApprove)
@@ -121,13 +174,13 @@ function printApplications(){
             buttonDenyRequest.position (1250,specificY)
             buttonDenyRequest.mousePressed(requestDenied)
             text(data.applications[n].approvalstatus,1350,specificY)
-            specificY +=50
             
         }
         else{
             text(data.applications[n].approvalstatus,1100,specificY)
-            specificY +=50
         }
+        
+        specificY +=75
         
         //console.log(specificY)
     }

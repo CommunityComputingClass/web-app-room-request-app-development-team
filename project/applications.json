@@ -7,7 +7,7 @@
             "email": "28abigail.placeholder@lwhs.org",
             "purpose": "club meeting",
             "time": "12:10 PM",
-            "approvalstatus":"Approved"
+            "approvalstatus":"Pending Review"
         },
         {
             "serial": "2",
@@ -34,7 +34,7 @@
             "email": "25selene.senioritis@lwhs.org",
             "purpose": "senior prank planning",
             "time": "8:00 AM",
-            "approvalstatus":"Denied"
+            "approvalstatus":"Pending Review"
         },
         {
             "serial": "5",
