@@ -1,12 +1,16 @@
 let headerText = "Room        |        Requester      | Email of Applicant                          |          Reason for Request | Time | Application Number"
 let data;
-let buttonApproveRequest
-let buttonDenyRequest
+let buttonApproveRequest;
+let buttonDenyRequest;
 let ReasonForDenial;
 let denialReasons = []
 let contents = "";
 let now = "";
 let requests = []
+let n
+
+const sourceDenial = { approvalstatus : "Denied"}
+const sourceApproval = {approvalstatus : "Approved"}
 
 function pingTime(){
     now = Date()
@@ -17,18 +21,20 @@ function storeText(){
 }
 
 function requestApproved(){
-
+    //requests.length-1 [n] = "Approved"
+    console.log(requests.length-1)
 }
 
 function automatedEmailApproved(){
     //to be filled in later: will need gmail account integration
 }
 
-function requestDenied(){
+function requestDenied(n){
     denialReasons.push(contents)
     console.log(contents)
     contents = "";
-    this.if = "Denied";
+    //splice(requests[n-1] = "Denied");
+    Object.assign(requests[n-1],sourceDenial)
     ReasonForDenial.value("request denied on grounds of:")
     
 }
@@ -54,42 +60,44 @@ class application {
     }
 
     render(specificY){
-            textSize(20)
-           if(this.if==="Denied"){
+        textSize(20)
+        if(this.if==="Denied"){
             fill("red")
            }
-          else if(this.if==="Pending Review"){
+        else if(this.if==="Pending Review"){
             fill("yellow")
            }
-           else if(this.if==="Approved"){
+        else if(this.if==="Approved"){
             fill("green")
            }
-           else(
+        else(
             fill("white")
            )
-          text(this.where,60,specificY)
-          text(this.who,200,specificY)
-          text(this.replyto,360,specificY)
-          text(this.why,720,specificY)
-          text(this.when,920,specificY)
-          text(this.what,1060,specificY)
+        text(this.where,60,specificY)
+        text(this.who,200,specificY)
+        text(this.replyto,360,specificY)
+        text(this.why,720,specificY)
+        text(this.when,920,specificY)
+        text(this.what,1060,specificY)
         
-            if(this.if==="Pending Review"){
+        if(this.if==="Pending Review"){
+            n = this.what
             let buttonTextApprove = "approve request"
             buttonApproveRequest = createButton(buttonTextApprove)
             buttonApproveRequest.position (1100,specificY)
             buttonApproveRequest.mousePressed(
-                //requestApproved(),
-                //this.if = "Approved"
+                requestApproved(n),
+                console.log("application approval requested")
             );
             let buttonTextDeny= "deny request"
             buttonDenyRequest = createButton(buttonTextDeny)
             buttonDenyRequest.position (1250,specificY)
             buttonDenyRequest.mousePressed(
-                //requestDenied(),
-                this.if = "Denied",
-                console.log(this.if)
+                requestDenied(n),
+                console.log("application denial requested")
             )
+            //currently the issue seems to be that the button.mousepressed is calling functions constantly 
+            //and not actually when the mouse is pressed
             text(this.if,1350,specificY)
             
          }
@@ -104,7 +112,7 @@ class application {
 function setup(){
     createCanvas(1920,1080);
     background("white");
-    console.log(data.applications[0])
+    //console.log(data.applications[0])
     ReasonForDenial = createInput("request denied on these grounds:")
     ReasonForDenial.size(300,40)
     ReasonForDenial.position(60,140)
@@ -112,7 +120,7 @@ function setup(){
     for (let n = 0; n<data.applications.length; n++){
         requests.push(new application(data.applications[n].serial,data.applications[n].room,data.applications[n].name,
         data.applications[n].email,data.applications[n].purpose,data.applications[n].time,data.applications[n].approvalstatus))
-        //console.log(requests[n])
+        console.log(requests[n])
     }
     
     
@@ -129,13 +137,13 @@ function draw() {
     text(now,400,150)
     //printApplications()
     renderApplications()
-
 }
+
 
 function renderApplications(){
     specificY = 250
     for( let [i] in requests) {
-        requests[i].render(specificY)
+        requests[i].render(specificY,n)
         specificY +=75
     }
 }
